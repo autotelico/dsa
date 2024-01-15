@@ -4,6 +4,8 @@ This is a singly Linked List implemented with JavaScript.
 ## Features
 There are two classes: ``LinkedList`` and ``Node``.
 
+``LinkedList`` builds the following methods:
+
 - ``append(value)`` adds a new node containing value to the end of the list or to start if list is empty
 
 - ``prepend(value)`` adds a new node containing value to the start of the list
@@ -28,3 +30,10 @@ There are two classes: ``LinkedList`` and ``Node``.
 
 - ``removeAt(index)`` removes the node at the given index or error message if the list is empty or if the request index is bigger than list size
 
+- ``refreshNodesPointers`` refreshes all ``Node`` objects with new pointers in their ``nextNode`` property.
+
+``Node`` comes with two properties:
+
+- ``value``, which is what it holds as a value, and
+
+- ``nextNode``, which is the pointer to the nextNode that succeeds it.
