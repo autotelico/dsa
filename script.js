@@ -73,6 +73,24 @@ class LinkedList {
     return result;
   }
 
+  contains(value) {
+    let curNode = this.root;
+    while (curNode.next !== null) {
+        if (curNode.value === value) return true
+        curNode = curNode.next;
+    }
+    return false;
+  }
+
+  find(value) {
+    let curNode = this.root;
+    while (curNode.next !== null) {
+        if (curNode.value === value) return curNode;
+        curNode = curNode.next;
+    }
+    return null;
+  }
+
   insertAt(index, value) {
     let curIndex = 1;
     if (index < 0) {
@@ -101,9 +119,12 @@ class LinkedList {
     let curNode = this.root;
     let curIndex = 0;
     let prev;
+    if (index < 0) {
+        throw new Error('Cannot remove at negative index')
+    }
     if (index === 0) {
-        this.root = this.root.next;
-        return;
+      this.root = this.root.next;
+      return;
     }
     while (curNode.next.next !== null && curIndex !== index) {
       prev = curNode;
@@ -133,5 +154,6 @@ ll.prepend(new Node(0));
 
 // ll.insertAt(5, new Node("potato"));
 ll.removeAt(1);
+console.log(ll.find(3));
 
 ll.toString();
