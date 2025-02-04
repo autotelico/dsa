@@ -1,6 +1,6 @@
 function binarySearch(array, target, leftmostIndex = 0) {
     const middle = Math.floor(array.length / 2);
-    console.log('middle:', array[middle])
+    console.log('middle value:', array[middle])
     console.log('leftmostIndex:', leftmostIndex)
     console.log('target:', target)
     if (array[middle] === target) return leftmostIndex + middle;
