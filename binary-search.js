@@ -1,6 +1,11 @@
-function binarySearch(array, target, leftmostIndex = 0) {
+/**
+ * @param {number[]} array
+ * @param {number} target
+ * @return {number}
+ */
+var search = function(array, target, leftmostIndex = 0) {
     const middle = Math.floor(array.length / 2);
-    console.log('middle value:', array[middle])
+    console.log('middle:', middle)
     console.log('leftmostIndex:', leftmostIndex)
     console.log('target:', target)
     if (array[middle] === target) return leftmostIndex + middle;
@@ -12,11 +17,10 @@ function binarySearch(array, target, leftmostIndex = 0) {
     const right = array.slice(middle);
 
     if (target < array[middle]) {
-        return binarySearch(left, target);
+        console.log(`middle value is ${array[middle]}, greater than the target ${target}.`)
+        return search(left, target, leftmostIndex);
     } else {
-        return binarySearch(right, target, middle + leftmostIndex);
+        console.log(`middle value is ${array[middle]}, smaller than the target ${target}.`)
+        return search(right, target, middle + leftmostIndex);
     }
-}
-
-
-console.log(binarySearch([1, 2, 3, 5, 30, 42], 421));
+};
